@@ -1,6 +1,8 @@
-type ExampleEntity @entity {
+type Vault @entity {
   id: ID!
-  count: BigInt!
-  creator: Bytes! # address
-  name: Bytes! # bytes32
+  creator: Bytes!
+  name: String!
+  implementation: Bytes!
+  proxy: Bytes!
+  status: String!
 }

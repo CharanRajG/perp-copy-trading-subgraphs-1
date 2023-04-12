@@ -1,20 +1,21 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
+description: A subgraph for the VaultFactory contract
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: VaultFactory
-    network: goerli
+    network: <your-target-network>
     source:
-      address: "0xE220776dA40c51a40146a07B15C51796D4C8d483"
+      address: "<VaultFactory-contract-address>"
       abi: VaultFactory
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.2
+      apiVersion: 0.0.4
       language: wasm/assemblyscript
+      file: ./src/mapping.ts
       entities:
-        - CreateVault
-        - DeleteVault
+        - Vault
       abis:
         - name: VaultFactory
           file: ./abis/VaultFactory.json
@@ -24,3 +25,4 @@ dataSources:
         - event: DeleteVault(address,address)
           handler: handleDeleteVault
       file: ./src/mapping.ts
+      
