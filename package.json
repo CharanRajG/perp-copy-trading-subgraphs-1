@@ -1,16 +1,19 @@
 {
   "name": "vault-factory1",
-  "license": "UNLICENSED",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ vault-factory1",
-    "create-local": "graph create --node http://localhost:8020/ vault-factory1",
-    "remove-local": "graph remove --node http://localhost:8020/ vault-factory1",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 vault-factory1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.21.1",
-    "@graphprotocol/graph-ts": "0.20.0"
+    "@graphprotocol/graph-ts": "^0.29.3",
+    "ethers": "^5.4.6",
+    "moment": "^2.29.1"
   }
 }

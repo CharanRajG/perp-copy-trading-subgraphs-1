@@ -2,7 +2,7 @@ specVersion: 0.0.4
 repository: https://github.com/nuthan2x/perp-copyTrading-core
 description: A subgraph for the VaultFactory contract
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: VaultFactory
@@ -10,7 +10,7 @@ dataSources:
     source:
       address: "0xE220776dA40c51a40146a07B15C51796D4C8d483"
       abi: VaultFactory
-      startBlock: 15874929 
+      startBlock: 15874929
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -19,11 +19,10 @@ dataSources:
         - Vault
       abis:
         - name: VaultFactory
-          file: ./abis/VaultFactory.json
+          file: VaultFactory\abis\VaultFactory.json
       eventHandlers:
         - event: CreateVault(address,bytes32,address,address)
           handler: handleCreateVault
         - event: DeleteVault(address,address)
           handler: handleDeleteVault
-      file: ./src/mapping.ts
-      
+      file: VaultFactory\VaultFactory.wasm
