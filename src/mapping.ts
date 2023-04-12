@@ -19,6 +19,7 @@ export function handleDeleteVault(event: DeleteVault): void {
   let vault = Vault.load(event.params.vaultProxy.toHex());
   if (vault != null) {
     vault.status = "closed";
+    vault.timestamp = event.block.timestamp.toI32();
     vault.save();
   }
 }
@@ -42,4 +43,4 @@ export function handleDeleteVault(event: DeleteVault): void {
 //   }
 // }
 
-// https://api.studio.thegraph.com/query/44834/vault-factory1/v0.0.2
+// https://api.studio.thegraph.com/query/44834/vault-factory1/v0.0.3
