@@ -1,7 +1,7 @@
 
 # subgraph
 
-- Go  to https://api.studio.thegraph.com/query/44834/vault-factory1/v0.0.3
+- Go  to https://api.studio.thegraph.com/query/44834/vault-factory1/v0.0.9
 
 - And paste the below schema and click run.
 
