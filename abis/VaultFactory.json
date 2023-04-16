@@ -1,5 +1,9 @@
 [
-  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
   {
     "anonymous": false,
     "inputs": [
@@ -51,15 +55,62 @@
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "name",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "trader",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "inverseCopyTrade",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint16",
+        "name": "copySizeBPS",
+        "type": "uint16"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "defaultCollateral",
+        "type": "address"
+      }
+    ],
+    "name": "Trader",
+    "type": "event"
+  },
+  {
     "inputs": [],
     "name": "MANAGEMENT_FEE",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "name", "type": "bytes32" }
+      {
+        "internalType": "bytes32",
+        "name": "name",
+        "type": "bytes32"
+      }
     ],
     "name": "createVault",
     "outputs": [],
@@ -68,7 +119,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "vaultProxy", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "vaultProxy",
+        "type": "address"
+      }
     ],
     "name": "deleteVault",
     "outputs": [],
@@ -76,22 +131,76 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "name",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "trader",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "inverseCopyTrade",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint16",
+        "name": "copySizeBPS",
+        "type": "uint16"
+      },
+      {
+        "internalType": "address",
+        "name": "defaultCollateral",
+        "type": "address"
+      }
+    ],
+    "name": "fireVaultEvent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "governor",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "keeper",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "newGovernor", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "newGovernor",
+        "type": "address"
+      }
     ],
     "name": "setGovernor",
     "outputs": [],
@@ -100,7 +209,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "newKeeper", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "newKeeper",
+        "type": "address"
+      }
     ],
     "name": "setKeeper",
     "outputs": [],
@@ -122,17 +235,35 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "address", "name": "", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
     "name": "vaults",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "recepient", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "recepient",
+        "type": "address"
+      }
     ],
     "name": "withdrawETH",
     "outputs": [],
@@ -141,14 +272,29 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "recepient", "type": "address" },
-      { "internalType": "address", "name": "token", "type": "address" },
-      { "internalType": "uint256", "name": "tokenAmount", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "recepient",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenAmount",
+        "type": "uint256"
+      }
     ],
     "name": "withdrawTokens",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
-  { "stateMutability": "payable", "type": "receive" }
+  {
+    "stateMutability": "payable",
+    "type": "receive"
+  }
 ]

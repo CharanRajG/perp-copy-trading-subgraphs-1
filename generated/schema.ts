@@ -114,3 +114,107 @@ export class Vault extends Entity {
     this.set("timestamp", Value.fromI32(value));
   }
 }
+
+export class TraderData extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save TraderData entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type TraderData must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("TraderData", id.toString(), this);
+    }
+  }
+
+  static load(id: string): TraderData | null {
+    return changetype<TraderData | null>(store.get("TraderData", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get name(): string {
+    let value = this.get("name");
+    return value!.toString();
+  }
+
+  set name(value: string) {
+    this.set("name", Value.fromString(value));
+  }
+
+  get trader(): string {
+    let value = this.get("trader");
+    return value!.toString();
+  }
+
+  set trader(value: string) {
+    this.set("trader", Value.fromString(value));
+  }
+
+  get inverseCopyTrade(): boolean {
+    let value = this.get("inverseCopyTrade");
+    return value!.toBoolean();
+  }
+
+  set inverseCopyTrade(value: boolean) {
+    this.set("inverseCopyTrade", Value.fromBoolean(value));
+  }
+
+  get copySizeBPS(): i32 {
+    let value = this.get("copySizeBPS");
+    return value!.toI32();
+  }
+
+  set copySizeBPS(value: i32) {
+    this.set("copySizeBPS", Value.fromI32(value));
+  }
+
+  get defaultCollateral(): string {
+    let value = this.get("defaultCollateral");
+    return value!.toString();
+  }
+
+  set defaultCollateral(value: string) {
+    this.set("defaultCollateral", Value.fromString(value));
+  }
+
+  get blockNumber(): i32 {
+    let value = this.get("blockNumber");
+    return value!.toI32();
+  }
+
+  set blockNumber(value: i32) {
+    this.set("blockNumber", Value.fromI32(value));
+  }
+
+  get txhash(): string {
+    let value = this.get("txhash");
+    return value!.toString();
+  }
+
+  set txhash(value: string) {
+    this.set("txhash", Value.fromString(value));
+  }
+
+  get timestamp(): i32 {
+    let value = this.get("timestamp");
+    return value!.toI32();
+  }
+
+  set timestamp(value: i32) {
+    this.set("timestamp", Value.fromI32(value));
+  }
+}

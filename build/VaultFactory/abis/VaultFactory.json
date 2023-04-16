@@ -55,6 +55,43 @@
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "name",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "trader",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "inverseCopyTrade",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint16",
+        "name": "copySizeBPS",
+        "type": "uint16"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "defaultCollateral",
+        "type": "address"
+      }
+    ],
+    "name": "Trader",
+    "type": "event"
+  },
+  {
     "inputs": [],
     "name": "MANAGEMENT_FEE",
     "outputs": [
@@ -89,6 +126,44 @@
       }
     ],
     "name": "deleteVault",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "name",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "trader",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "inverseCopyTrade",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint16",
+        "name": "copySizeBPS",
+        "type": "uint16"
+      },
+      {
+        "internalType": "address",
+        "name": "defaultCollateral",
+        "type": "address"
+      }
+    ],
+    "name": "fireVaultEvent",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

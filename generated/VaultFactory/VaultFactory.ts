@@ -62,6 +62,40 @@ export class DeleteVault__Params {
   }
 }
 
+export class Trader extends ethereum.Event {
+  get params(): Trader__Params {
+    return new Trader__Params(this);
+  }
+}
+
+export class Trader__Params {
+  _event: Trader;
+
+  constructor(event: Trader) {
+    this._event = event;
+  }
+
+  get name(): Bytes {
+    return this._event.parameters[0].value.toBytes();
+  }
+
+  get trader(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get inverseCopyTrade(): boolean {
+    return this._event.parameters[2].value.toBoolean();
+  }
+
+  get copySizeBPS(): i32 {
+    return this._event.parameters[3].value.toI32();
+  }
+
+  get defaultCollateral(): Address {
+    return this._event.parameters[4].value.toAddress();
+  }
+}
+
 export class VaultFactory extends ethereum.SmartContract {
   static bind(address: Address): VaultFactory {
     return new VaultFactory("VaultFactory", address);
@@ -220,6 +254,56 @@ export class DeleteVaultCall__Outputs {
   _call: DeleteVaultCall;
 
   constructor(call: DeleteVaultCall) {
+    this._call = call;
+  }
+}
+
+export class FireVaultEventCall extends ethereum.Call {
+  get inputs(): FireVaultEventCall__Inputs {
+    return new FireVaultEventCall__Inputs(this);
+  }
+
+  get outputs(): FireVaultEventCall__Outputs {
+    return new FireVaultEventCall__Outputs(this);
+  }
+}
+
+export class FireVaultEventCall__Inputs {
+  _call: FireVaultEventCall;
+
+  constructor(call: FireVaultEventCall) {
+    this._call = call;
+  }
+
+  get caller(): Address {
+    return this._call.inputValues[0].value.toAddress();
+  }
+
+  get name(): Bytes {
+    return this._call.inputValues[1].value.toBytes();
+  }
+
+  get trader(): Address {
+    return this._call.inputValues[2].value.toAddress();
+  }
+
+  get inverseCopyTrade(): boolean {
+    return this._call.inputValues[3].value.toBoolean();
+  }
+
+  get copySizeBPS(): i32 {
+    return this._call.inputValues[4].value.toI32();
+  }
+
+  get defaultCollateral(): Address {
+    return this._call.inputValues[5].value.toAddress();
+  }
+}
+
+export class FireVaultEventCall__Outputs {
+  _call: FireVaultEventCall;
+
+  constructor(call: FireVaultEventCall) {
     this._call = call;
   }
 }

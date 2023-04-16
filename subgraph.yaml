@@ -8,15 +8,16 @@ dataSources:
     name: VaultFactory
     network: arbitrum-goerli
     source:
-      address: "0xE220776dA40c51a40146a07B15C51796D4C8d483"
+      address: "0x6aB19faC1fcaaa7D707e1111b2420F282Bd087d9"
       abi: VaultFactory
-      startBlock: 15874929 
+      startBlock: 16652727 
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - Vault
+        - TraderData
       abis:
         - name: VaultFactory
           file: ./abis/VaultFactory.json
@@ -25,5 +26,7 @@ dataSources:
           handler: handleCreateVault
         - event: DeleteVault(address,address)
           handler: handleDeleteVault
+        - event: Trader(indexed bytes32,indexed address,bool,uint16,address)
+          handler: handleTrader
       file: ./src/mapping.ts
       

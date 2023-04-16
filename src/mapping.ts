@@ -1,6 +1,6 @@
 import { Address, BigInt } from "@graphprotocol/graph-ts";
-import { CreateVault, DeleteVault } from "../generated/VaultFactory/VaultFactory";
-import { Vault } from "../generated/schema";
+import { CreateVault, DeleteVault, Trader } from "../generated/VaultFactory/VaultFactory";
+import { Vault, TraderData } from "../generated/schema";
 
 export function handleCreateVault(event: CreateVault): void {
   let vault = new Vault(event.params.vaultProxy.toHex());
@@ -20,8 +20,31 @@ export function handleDeleteVault(event: DeleteVault): void {
   if (vault != null) {
     vault.status = "closed";
     vault.timestamp = event.block.timestamp.toI32();
+    vault.blockNumber = event.block.number.toI32();
+    vault.txhash = event.transaction.hash.toHex();
     vault.save();
   }
+}
+
+
+export function handleTrader(event: Trader): void {
+  let traderId = event.params.name.toString() + "-" + event.params.trader.toHex();
+  let trader = TraderData.load(traderId);
+
+  if (trader == null) {
+    trader = new TraderData(traderId);
+    trader.name = event.params.name.toString();
+    trader.trader = event.params.trader.toHex();
+  }
+
+  trader.blockNumber = event.block.number.toI32();
+  trader.txhash = event.transaction.hash.toHex();
+  trader.timestamp = event.block.timestamp.toI32();
+  trader.inverseCopyTrade = event.params.inverseCopyTrade;
+  trader.copySizeBPS = event.params.copySizeBPS;
+  trader.defaultCollateral = event.params.defaultCollateral.toHex();
+
+  trader.save();
 }
 
 

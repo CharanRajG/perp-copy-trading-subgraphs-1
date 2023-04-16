@@ -9,3 +9,15 @@ type Vault @entity {
   status: String!
   timestamp: Int!
 }
+
+type TraderData @entity {
+  id: ID!
+  name: String!
+  trader: String!
+  inverseCopyTrade: Boolean!
+  copySizeBPS: Int!
+  defaultCollateral: String!
+  blockNumber: Int!
+  txhash: String!
+  timestamp: Int!
+}
