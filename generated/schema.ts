@@ -146,13 +146,13 @@ export class TraderData extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get name(): string {
-    let value = this.get("name");
+  get vault(): string {
+    let value = this.get("vault");
     return value!.toString();
   }
 
-  set name(value: string) {
-    this.set("name", Value.fromString(value));
+  set vault(value: string) {
+    this.set("vault", Value.fromString(value));
   }
 
   get trader(): string {

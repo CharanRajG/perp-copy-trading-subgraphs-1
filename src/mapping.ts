@@ -28,12 +28,12 @@ export function handleDeleteVault(event: DeleteVault): void {
 
 
 export function handleTrader(event: Trader): void {
-  let traderId = event.params.name.toString() + "-" + event.params.trader.toHex();
+  let traderId = event.params.vault.toHex() + "-" + event.params.trader.toHex();
   let trader = TraderData.load(traderId);
 
   if (trader == null) {
     trader = new TraderData(traderId);
-    trader.name = event.params.name.toString();
+    trader.vault = event.params.vault.toHex();
     trader.trader = event.params.trader.toHex();
   }
 

@@ -75,8 +75,8 @@ export class Trader__Params {
     this._event = event;
   }
 
-  get name(): Bytes {
-    return this._event.parameters[0].value.toBytes();
+  get vault(): Address {
+    return this._event.parameters[0].value.toAddress();
   }
 
   get trader(): Address {

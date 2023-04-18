@@ -12,7 +12,7 @@ type Vault @entity {
 
 type TraderData @entity {
   id: ID!
-  name: String!
+  vault: String!
   trader: String!
   inverseCopyTrade: Boolean!
   copySizeBPS: Int!
